@@ -1,4 +1,4 @@
-# 🏥 MEDCURE — Hospital Appointment Booking System
+#  MEDCURE — Hospital Appointment Booking System
 
 > **Internship Project** | Submitted to **FluentGrid Limited** | Author: **Nikhil Varma Billa**
 
@@ -6,49 +6,49 @@ A production-grade, full-stack hospital management platform featuring AI-powered
 
 ---
 
-## 🚀 Live Demo Credentials
+##  Live Demo Credentials
 
-Use these to log in immediately — no registration needed:
+Use these to log in immediately — no registration needed (or) you can create your account and login.
 
 | Role    | Email                        | Password    |
 |---------|------------------------------|-------------|
-| 🧑‍⚕️ Patient | rahul.mehta@gmail.com        | patient123  |
-| 👨‍⚕️ Doctor  | rajesh.kumar@medcure.com     | doctor123   |
-| 🛡️ Admin   | admin@medcure.com            | admin123    |
+|  Patient | rahul.mehta@gmail.com        | patient123  |
+|  Doctor  | rajesh.kumar@medcure.com     | doctor123   |
+|  Admin   | admin@medcure.com            | admin123    |
 
-> 💡 **Offline Demo Mode**: If the backend is not running, the app automatically switches to a localStorage-based mock database. All features (login, booking, chatbot fallback) are fully usable without starting the Java backend.
+>  **Offline Demo Mode**: If the backend is not running, the app automatically switches to a localStorage-based mock database. All features (login, booking, chatbot fallback) are fully usable without starting the Java backend.
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
-### 🤖 AI Medical Chatbot (Gemini 1.5 Flash)
+###  AI Medical Chatbot (Gemini 1.5 Flash)
 - Powered by **Google Gemini 1.5 Flash** API
-- Acts as a virtual medical receptionist for CarePlus Hospital
+- Acts as a virtual medical receptionist for Medcure Hospital
 - Answers questions about appointments, departments, and hospital services
 - Graceful fallback with intelligent keyword-based responses when offline
 
-### 🧑‍⚕️ Patient Portal
+###  Patient Portal
 - Search doctors by name, specialization, or department
 - View doctor profiles with experience, biography, and consultation fees
 - Book available time slots with double-booking prevention
 - View, reschedule, or cancel appointments
 - Real-time in-app notification center
 
-### 👨‍⚕️ Doctor Dashboard
+###  Doctor Dashboard
 - Add and manage availability time slots
 - View all booked appointments
 - Write clinical notes and prescriptions
 - Mark appointments as completed
 
-### 🛡️ Admin Panel
+###  Admin Panel
 - Live analytics — total patients, doctors, bookings, cancellations
 - Add/delete hospital departments
 - View and remove doctor profiles
 
 ---
 
-## 🛠 Technology Stack
+##  Technology Stack
 
 | Layer      | Technology                        |
 |------------|-----------------------------------|
@@ -63,7 +63,7 @@ Use these to log in immediately — no registration needed:
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 hospital-booking-system/
@@ -104,7 +104,7 @@ hospital-booking-system/
 
 ---
 
-## ⚙️ Running the Project Locally
+##  Running the Project Locally
 
 ### Prerequisites
 
@@ -149,7 +149,7 @@ npm install
 npm run dev
 ```
 
-✅ Frontend starts at: **http://localhost:5173**
+ Frontend starts at: **http://localhost:5173**
 
 ---
 
@@ -164,15 +164,15 @@ mvn spring-boot:run
 
 Or just double-click **`run-backend.bat`** (auto-loads the API key from `.env`).
 
-✅ Backend REST API starts at: **http://localhost:8080**
+ Backend REST API starts at: **http://localhost:8080**
 
-> 💡 H2 Database console: **http://localhost:8080/h2-console** (JDBC URL: `jdbc:h2:mem:hospitaldb`)
+>  H2 Database console: **http://localhost:8080/h2-console** (JDBC URL: `jdbc:h2:mem:hospitaldb`)
 
 ---
 
-## 🏥 Pre-Configured Hospital Departments
+##  Configured Hospital Departments
 
-The system auto-seeds 20 departments on startup:
+The author has created and setup 20 departments :
 
 | # | Department              | # | Department          |
 |---|-------------------------|---|---------------------|
@@ -227,7 +227,7 @@ The system auto-seeds 20 departments on startup:
 
 ---
 
-## 🔐 Security Architecture
+##  Security Architecture
 
 - **JWT Authentication** — Stateless token-based auth issued on login
 - **Role-Based Access Control** — `PATIENT`, `DOCTOR`, `ADMIN` roles enforced at API level
@@ -237,7 +237,7 @@ The system auto-seeds 20 departments on startup:
 
 ---
 
-## 📦 Scripts Reference
+##  Scripts Reference
 
 | Command               | Description                          |
 |-----------------------|--------------------------------------|
@@ -250,13 +250,13 @@ The system auto-seeds 20 departments on startup:
 
 ---
 
-## 📮 Postman Collection
+##  Postman Collection
 
 Import `CarePlus-Hospital-API.postman_collection.json` to test all API endpoints directly.
 
 ---
 
-## 📄 License
+##  License
 
 **Author**: Nikhil Varma Billa  
 **Submitted as**: Internship Project — FluentGrid Limited  
