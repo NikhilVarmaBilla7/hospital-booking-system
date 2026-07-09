@@ -1,60 +1,80 @@
-# MEDCURE HOSPITALS — Hospital Appointment Booking System
+# 🏥 MEDCURE — Hospital Appointment Booking System
 
-A full-stack hospital appointment management platform built with **React (Vite)** for the frontend and **Spring Boot** for the backend. Patients can search doctors and book appointments, doctors can manage their schedule and write clinical notes, and admins can oversee the entire system.
+> **Internship Project** | Submitted to **FluentGrid Limited** | Author: **Nikhil Varma Billa**
+
+A production-grade, full-stack hospital management platform featuring AI-powered patient assistance, role-based access control, and real-time appointment management.
 
 ---
 
-## Features
+## 🚀 Live Demo Credentials
 
-### Patient
+Use these to log in immediately — no registration needed:
+
+| Role    | Email                        | Password    |
+|---------|------------------------------|-------------|
+| 🧑‍⚕️ Patient | rahul.mehta@gmail.com        | patient123  |
+| 👨‍⚕️ Doctor  | rajesh.kumar@medcure.com     | doctor123   |
+| 🛡️ Admin   | admin@medcure.com            | admin123    |
+
+> 💡 **Offline Demo Mode**: If the backend is not running, the app automatically switches to a localStorage-based mock database. All features (login, booking, chatbot fallback) are fully usable without starting the Java backend.
+
+---
+
+## ✨ Key Features
+
+### 🤖 AI Medical Chatbot (Gemini 1.5 Flash)
+- Powered by **Google Gemini 1.5 Flash** API
+- Acts as a virtual medical receptionist for CarePlus Hospital
+- Answers questions about appointments, departments, and hospital services
+- Graceful fallback with intelligent keyword-based responses when offline
+
+### 🧑‍⚕️ Patient Portal
 - Search doctors by name, specialization, or department
 - View doctor profiles with experience, biography, and consultation fees
-- Book available time slots
+- Book available time slots with double-booking prevention
 - View, reschedule, or cancel appointments
-- Receive in-app notifications
-- Chat with the MEDCURE virtual assistant
+- Real-time in-app notification center
 
-### Doctor
-- Add availability time slots
+### 👨‍⚕️ Doctor Dashboard
+- Add and manage availability time slots
 - View all booked appointments
 - Write clinical notes and prescriptions
 - Mark appointments as completed
 
-### Admin
-- View live analytics (total patients, doctors, bookings, cancellations)
-- Add and delete hospital departments
+### 🛡️ Admin Panel
+- Live analytics — total patients, doctors, bookings, cancellations
+- Add/delete hospital departments
 - View and remove doctor profiles
 
 ---
 
-## Technology Stack
+## 🛠 Technology Stack
 
-| Layer      | Technology                  |
-|------------|-----------------------------|
-| Frontend   | React 18, Vite, React Router |
-| Styling    | Vanilla CSS (custom design system) |
-| Icons      | Lucide React                |
-| HTTP       | Axios                        |
-| Backend    | Spring Boot (Java 17)        |
-| Database   | MySQL / H2 (configurable)    |
-| Auth       | JWT (JSON Web Token)         |
-
-> **Offline / Demo Mode**: When the backend is not running, the app automatically falls back to a localStorage-based mock database. All features are fully usable without starting the Java backend.
+| Layer      | Technology                        |
+|------------|-----------------------------------|
+| Frontend   | React 18, Vite, React Router v6   |
+| Styling    | Vanilla CSS (custom design system)|
+| Icons      | Lucide React                      |
+| HTTP       | Axios                             |
+| Backend    | Spring Boot 3.1 (Java 17)         |
+| Database   | H2 In-Memory (dev) / MySQL (prod) |
+| Auth       | JWT (JSON Web Token) + BCrypt     |
+| AI         | Google Gemini 1.5 Flash API       |
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 hospital-booking-system/
-├── frontend/                  # React + Vite application
+├── frontend/                        # React + Vite SPA
 │   ├── src/
 │   │   ├── context/
 │   │   │   └── AuthContext.jsx      # Auth state, API layer, offline mock DB
 │   │   ├── views/
 │   │   │   ├── Login.jsx
 │   │   │   ├── Register.jsx
-│   │   │   ├── PatientDashboard.jsx
+│   │   │   ├── PatientDashboard.jsx  # Includes AI Chatbot UI
 │   │   │   ├── DoctorDashboard.jsx
 │   │   │   └── AdminDashboard.jsx
 │   │   ├── App.jsx                  # Routes and protected route logic
@@ -63,53 +83,65 @@ hospital-booking-system/
 │   ├── index.html
 │   └── package.json
 │
-├── backend/                   # Spring Boot application
-│   └── src/main/java/...
+├── backend/                         # Spring Boot REST API
+│   ├── src/main/java/com/hospital/booking/
+│   │   ├── config/                  # Security, JWT, CORS
+│   │   ├── controller/              # REST endpoints
+│   │   ├── service/                 # Business logic + GeminiService
+│   │   ├── entity/                  # JPA entities
+│   │   ├── repository/              # Spring Data JPA
+│   │   ├── dto/                     # Request/Response DTOs
+│   │   └── exception/               # Global exception handling
+│   ├── src/main/resources/
+│   │   └── application.yml          # App configuration
+│   └── pom.xml
 │
-├── CarePlus-Hospital-API.postman_collection.json
-├── run-frontend.bat
-├── run-backend.bat
+├── CarePlus-Hospital-API.postman_collection.json  # API test collection
+├── run-frontend.bat                 # One-click frontend launcher
+├── run-backend.bat                  # One-click backend launcher
 └── README.md
 ```
 
 ---
 
-## Running the Project in VS Code
+## ⚙️ Running the Project Locally
 
 ### Prerequisites
 
-Make sure you have the following installed:
-
-| Tool       | Version   | Download                          |
-|------------|-----------|-----------------------------------|
-| Node.js    | 18 or above | https://nodejs.org/               |
-| npm        | comes with Node.js | —                        |
-| Java JDK   | 17        | https://adoptium.net/             |
-| Maven      | 3.8+      | https://maven.apache.org/         |
-| Git        | any       | https://git-scm.com/              |
+| Tool     | Version   | Download                          |
+|----------|-----------|-----------------------------------|
+| Node.js  | 18+       | https://nodejs.org/               |
+| Java JDK | 17        | https://adoptium.net/             |
+| Maven    | 3.8+      | https://maven.apache.org/         |
+| Git      | any       | https://git-scm.com/              |
 
 ---
 
 ### Step 1 — Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/hospital-booking-system.git
+git clone https://github.com/NikhilVarmaBilla7/hospital-booking-system.git
 cd hospital-booking-system
 ```
 
 ---
 
-### Step 2 — Open in VS Code
+### Step 2 — Set Up Gemini API Key (for AI Chatbot)
 
-```bash
-code .
+Create a file `backend/.env` with your Gemini API key:
+
 ```
+GEMINI_API_KEY=your-google-gemini-api-key-here
+```
+
+> Get a free key at: https://aistudio.google.com/app/apikey
+> Without this key, the chatbot still works using intelligent fallback responses.
 
 ---
 
 ### Step 3 — Run the Frontend
 
-Open a terminal in VS Code (`Ctrl + `` ` ```) and run:
+Open a terminal and run:
 
 ```bash
 cd frontend
@@ -117,125 +149,115 @@ npm install
 npm run dev
 ```
 
-The frontend will start at: **http://localhost:5173**
-
-> You can use the app fully in demo mode even without starting the backend.
+✅ Frontend starts at: **http://localhost:5173**
 
 ---
 
-### Step 4 — Run the Backend (Optional)
+### Step 4 — Run the Backend
 
-Open a second terminal in VS Code and run:
+Open a second terminal and run:
 
 ```bash
 cd backend
 mvn spring-boot:run
 ```
 
-The backend REST API will start at: **http://localhost:8080**
+Or just double-click **`run-backend.bat`** (auto-loads the API key from `.env`).
 
-> If the backend is not running, the frontend automatically switches to offline demo mode using a built-in localStorage simulator.
+✅ Backend REST API starts at: **http://localhost:8080**
 
----
-
-## Demo Credentials
-
-Use these to log in directly from the login page (click the quick-fill buttons):
-
-| Role    | Email                        | Password    |
-|---------|------------------------------|-------------|
-| Patient | rahul.mehta@gmail.com        | patient123  |
-| Doctor  | rajesh.kumar@medcure.com     | doctor123   |
-| Admin   | admin@medcure.com            | admin123    |
-
-> Patients can register with any personal email (Gmail, Outlook, etc.).  
-> Doctors and Admins use organisation emails ending in `@medcure.com`.
+> 💡 H2 Database console: **http://localhost:8080/h2-console** (JDBC URL: `jdbc:h2:mem:hospitaldb`)
 
 ---
 
-## Hospital Departments
+## 🏥 Pre-Configured Hospital Departments
 
-The system includes 20 pre-configured departments:
+The system auto-seeds 20 departments on startup:
 
-| # | Department             | # | Department          |
-|---|------------------------|---|---------------------|
-| 1 | Cardiology             | 11 | Gastroenterology   |
-| 2 | Pediatrics             | 12 | Pulmonology        |
-| 3 | Orthopedics            | 13 | Nephrology         |
-| 4 | Neurology              | 14 | Urology            |
-| 5 | Dermatology            | 15 | Endocrinology      |
-| 6 | Gynecology & Obstetrics| 16 | Rheumatology       |
-| 7 | Ophthalmology          | 17 | Hematology         |
-| 8 | ENT                    | 18 | General Surgery    |
-| 9 | Psychiatry             | 19 | Dentistry          |
-| 10| Oncology               | 20 | Physiotherapy      |
+| # | Department              | # | Department          |
+|---|-------------------------|---|---------------------|
+| 1 | Cardiology              | 11| Gastroenterology    |
+| 2 | Pediatrics              | 12| Pulmonology         |
+| 3 | Orthopedics             | 13| Nephrology          |
+| 4 | Neurology               | 14| Urology             |
+| 5 | Dermatology             | 15| Endocrinology       |
+| 6 | Gynecology & Obstetrics | 16| Rheumatology        |
+| 7 | Ophthalmology           | 17| Hematology          |
+| 8 | ENT                     | 18| General Surgery     |
+| 9 | Psychiatry              | 19| Dentistry           |
+|10 | Oncology                | 20| Physiotherapy       |
 
 ---
 
-## Backend API Endpoints
+## 📡 Backend API Endpoints
 
 ### Authentication
-| Method | Endpoint              | Description         |
-|--------|-----------------------|---------------------|
-| POST   | /api/auth/register    | Register new user   |
-| POST   | /api/auth/login       | Login, get JWT      |
+| Method | Endpoint           | Description       |
+|--------|--------------------|-------------------|
+| POST   | /api/auth/register | Register new user |
+| POST   | /api/auth/login    | Login, get JWT    |
 
 ### Patient
-| Method | Endpoint                            | Description                  |
-|--------|-------------------------------------|------------------------------|
-| GET    | /api/doctors                        | List / search doctors        |
-| GET    | /api/doctors/{id}/slots             | Get available slots          |
-| POST   | /api/appointments/book              | Book an appointment          |
-| GET    | /api/appointments/my                | View my appointments         |
-| PUT    | /api/appointments/{id}/reschedule   | Reschedule appointment       |
-| DELETE | /api/appointments/{id}              | Cancel appointment           |
+| Method | Endpoint                          | Description              |
+|--------|-----------------------------------|--------------------------|
+| GET    | /api/doctors                      | List / search doctors    |
+| GET    | /api/doctors/{id}/slots           | Get available slots      |
+| POST   | /api/appointments/book            | Book an appointment      |
+| GET    | /api/appointments/my              | View my appointments     |
+| PUT    | /api/appointments/{id}/reschedule | Reschedule appointment   |
+| DELETE | /api/appointments/{id}            | Cancel appointment       |
+| POST   | /api/chat                         | AI Chatbot query         |
 
 ### Doctor
-| Method | Endpoint                                   | Description              |
-|--------|--------------------------------------------|--------------------------|
-| POST   | /api/doctor/slots                          | Add availability slot    |
-| GET    | /api/doctor/appointments                   | View clinic appointments |
-| PUT    | /api/doctor/appointments/{id}/clinical     | Add clinical notes       |
-| PUT    | /api/doctor/appointments/{id}/complete     | Mark as completed        |
+| Method | Endpoint                                  | Description            |
+|--------|-------------------------------------------|------------------------|
+| POST   | /api/doctor/slots                         | Add availability slot  |
+| GET    | /api/doctor/appointments                  | View clinic schedule   |
+| PUT    | /api/doctor/appointments/{id}/clinical    | Add clinical notes     |
+| PUT    | /api/doctor/appointments/{id}/complete    | Mark as completed      |
 
 ### Admin
-| Method | Endpoint                    | Description              |
-|--------|-----------------------------|--------------------------|
-| GET    | /api/admin/reports          | Dashboard analytics      |
-| GET    | /api/admin/departments      | List departments         |
-| POST   | /api/admin/departments      | Add department           |
-| DELETE | /api/admin/departments/{id} | Delete department        |
-| DELETE | /api/admin/doctors/{id}     | Remove doctor profile    |
+| Method | Endpoint                    | Description           |
+|--------|-----------------------------|-----------------------|
+| GET    | /api/admin/reports          | Dashboard analytics   |
+| GET    | /api/admin/departments      | List departments      |
+| POST   | /api/admin/departments      | Add department        |
+| DELETE | /api/admin/departments/{id} | Delete department     |
+| DELETE | /api/admin/doctors/{id}     | Remove doctor profile |
 
 ---
 
-## VS Code Recommended Extensions
+## 🔐 Security Architecture
 
-Install these for the best development experience:
-
-- **ES7+ React/Redux/React-Native snippets** — React snippets
-- **Prettier – Code formatter** — Auto-format on save
-- **ESLint** — Code linting
-- **Auto Rename Tag** — Rename paired JSX/HTML tags
-- **GitLens** — Git blame and history
+- **JWT Authentication** — Stateless token-based auth issued on login
+- **Role-Based Access Control** — `PATIENT`, `DOCTOR`, `ADMIN` roles enforced at API level
+- **BCrypt Password Hashing** — All passwords securely hashed
+- **CORS Configured** — Frontend-backend communication secured
+- **Secret Management** — API keys loaded from environment variables (never committed to git)
 
 ---
 
-## Scripts Reference
+## 📦 Scripts Reference
 
-| Command          | Description                        |
-|------------------|------------------------------------|
-| `npm install`    | Install frontend dependencies      |
-| `npm run dev`    | Start Vite dev server (port 5173)  |
-| `npm run build`  | Build production bundle            |
-| `npm run preview`| Preview the production build       |
-| `mvn spring-boot:run` | Start Spring Boot backend (port 8080) |
-
+| Command               | Description                          |
+|-----------------------|--------------------------------------|
+| `npm install`         | Install frontend dependencies        |
+| `npm run dev`         | Start Vite dev server (port 5173)    |
+| `npm run build`       | Build production bundle              |
+| `mvn spring-boot:run` | Start Spring Boot backend (port 8080)|
+| `run-backend.bat`     | One-click backend start (Windows)    |
+| `run-frontend.bat`    | One-click frontend start (Windows)   |
 
 ---
 
-## License
+## 📮 Postman Collection
 
-Author: Nikhil Varma Billa
+Import `CarePlus-Hospital-API.postman_collection.json` to test all API endpoints directly.
 
-This project is submitted as an Internship project for FluentGrid limited. All rights reserved.
+---
+
+## 📄 License
+
+**Author**: Nikhil Varma Billa  
+**Submitted as**: Internship Project — FluentGrid Limited  
+All rights reserved © 2026
